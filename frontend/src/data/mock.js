@@ -1,6 +1,4 @@
 // Mock data for Kamile Nails website
-import kamileBusiness from "../images/kamile-business.jpg";
-
 export const services = [
   {
     id: 1,
@@ -72,7 +70,7 @@ export const contactInfo = {
   instagram: "@kamilesilvanails",
   address: "Cachoeirinha - Rio Grande do Sul - RS",
   cep: "05432-000",
-  hours: "Segunda à Sábado: 8h às 18h"
+  hours: "Segunda à Sexta: 8h às 18h"
 };
 
 // Available time slots for appointments
