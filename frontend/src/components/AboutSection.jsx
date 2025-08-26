@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, Heart, Users, Clock } from 'lucide-react';
 import { aboutInfo } from '../data/mock';
+import kamileBusiness from "../images/kamile-nails.jpg";
 
 const AboutSection = () => {
   const highlights = [
@@ -29,12 +30,12 @@ const AboutSection = () => {
   return (
     <section id="sobre" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Image Section */}
           <div className="relative">
             <div className="relative z-10">
               <img 
-                src={aboutInfo.photo}
+                src={kamileBusiness}
                 alt={aboutInfo.name}
                 className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
               />
@@ -44,9 +45,9 @@ const AboutSection = () => {
             <div className="absolute -top-8 -left-8 w-full h-full bg-gradient-to-br from-pink-100 to-rose-100 rounded-2xl -z-10"></div>
             
             {/* Experience card */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6 border border-pink-100">
+            <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-lg p-6 border border-pink-100 z-10">
               <div className="text-center">
-                <div className="text-3xl font-bold text-pink-500 mb-1">5+</div>
+                <div className="text-3xl font-bold text-pink-500 mb-1">2+</div>
                 <div className="text-sm text-gray-600">Anos de</div>
                 <div className="text-sm text-gray-600">Experiência</div>
               </div>
