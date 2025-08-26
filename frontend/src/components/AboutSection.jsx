@@ -11,24 +11,14 @@ const AboutSection = () => {
       description: "Formação profissional em nail design e técnicas avançadas"
     },
     {
-      icon: Heart,
-      title: "Atendimento Personalizado",
-      description: "Cada cliente recebe atenção especial e design único"
-    },
-    {
       icon: Users,
       title: "500+ Clientes Felizes",
       description: "Mais de 500 clientes satisfeitas com nossos serviços"
     },
-    {
-      icon: Clock,
-      title: "Pontualidade",
-      description: "Respeito ao seu tempo com horários sempre pontuais"
-    }
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-white">
+    <section id="sobre" className="py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Image Section */}
@@ -37,7 +27,7 @@ const AboutSection = () => {
               <img 
                 src={kamileBusiness}
                 alt={aboutInfo.name}
-                className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
+                className="rounded-2xl shadow-2xl w-full h-full object-cover"
               />
             </div>
             
@@ -63,7 +53,7 @@ const AboutSection = () => {
               </div>
               
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Conheça a
+                Oi, eu sou a
                 <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent block">
                   {aboutInfo.name}
                 </span>
@@ -75,7 +65,7 @@ const AboutSection = () => {
             </div>
 
             {/* Highlights Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6 cursor-default">
               {highlights.map((highlight, index) => {
                 const IconComponent = highlight.icon;
                 return (
@@ -95,24 +85,6 @@ const AboutSection = () => {
                   </div>
                 );
               })}
-            </div>
-
-            {/* Stats */}
-            <div className="bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl p-6 text-white">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold">Vila Madalena</div>
-                  <div className="text-sm opacity-90">Localização</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">Nail Art</div>
-                  <div className="text-sm opacity-90">Especialidade</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">Seg-Sáb</div>
-                  <div className="text-sm opacity-90">Atendimento</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

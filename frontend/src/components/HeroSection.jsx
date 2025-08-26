@@ -14,9 +14,14 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50 pt-32"
+      className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50 pt-16 flex items-center relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Blush Effects */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-gradient-to-br from-pink-200/40 to-rose-200/30 rounded-full blur-3xl opacity-60"></div>
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-tl from-rose-200/40 to-pink-300/30 rounded-full blur-3xl opacity-50"></div>
+      {/* Blush Effects */}
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-8">

@@ -6,7 +6,7 @@ const PortfolioSection = () => {
   return (
     <div>
       {/* Portfolio Images */}
-      <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-50 to-pink-50">
+      <section id="portfolio" className="py-32 bg-gradient-to-br from-gray-50 to-pink-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center space-x-2 text-pink-500 mb-4">

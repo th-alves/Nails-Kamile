@@ -61,7 +61,7 @@ export const portfolioImages = [
 
 export const aboutInfo = {
   name: "Kamile Silva",
-  description: "Olá! Sou a Kamile, nail designer apaixonada por transformar unhas em verdadeiras obras de arte. Com mais de 5 anos de experiência no ramo da beleza, me especializei em nail art personalizada, sempre buscando criar designs únicos que reflitam a personalidade de cada cliente. Utilizo apenas produtos de alta qualidade e técnicas modernas para garantir que suas unhas fiquem perfeitas e duradouras. Meu objetivo é proporcionar uma experiência relaxante e transformadora, onde cada detalhe é pensado especialmente para você.",
+  description: "Nail designer apaixonada por transformar unhas em verdadeiras obras de arte. Com mais de 5 anos de experiência no ramo da beleza, me especializei em nail art personalizada, sempre buscando criar designs únicos que reflitam a personalidade de cada cliente. Utilizo apenas produtos de alta qualidade e técnicas modernas para garantir que suas unhas fiquem perfeitas e duradouras. Meu objetivo é proporcionar uma experiência relaxante e transformadora, onde cada detalhe é pensado especialmente para você.",
   experience: "2+ anos de experiência",
   specialty: "Nail Art Personalizada",
   location: "Rio Grande do Sul - RS"
@@ -69,7 +69,7 @@ export const aboutInfo = {
 
 export const contactInfo = {
   phone: "11963065438",
-  instagram: "@kamilenails.sp",
+  instagram: "@kamilesilvanails",
   address: "Rua das Flores, 123 - Vila Madalena, Rio Grande do Sul - RS",
   cep: "05432-000",
   hours: "Segunda à Sábado: 8h às 18h"

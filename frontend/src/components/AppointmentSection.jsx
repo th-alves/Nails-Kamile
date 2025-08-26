@@ -1,34 +1,41 @@
-import React, { useState } from 'react';
-import { Calendar as CalendarIcon, Clock, User, Phone, MessageSquare, Check } from 'lucide-react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Textarea } from './ui/textarea';
-import { Calendar } from './ui/calendar';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
-import { timeSlots, isSlotAvailable, addAppointment } from '../data/mock';
+import React, { useState } from "react";
+import {
+  Calendar as CalendarIcon,
+  Clock,
+  User,
+  Phone,
+  MessageSquare,
+  Check,
+} from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Textarea } from "./ui/textarea";
+import { Calendar } from "./ui/calendar";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import { timeSlots, isSlotAvailable, addAppointment } from "../data/mock";
 
 const AppointmentSection = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState('');
-  const [clientName, setClientName] = useState('');
-  const [clientPhone, setClientPhone] = useState('');
-  const [observations, setObservations] = useState('');
+  const [selectedTime, setSelectedTime] = useState("");
+  const [clientName, setClientName] = useState("");
+  const [clientPhone, setClientPhone] = useState("");
+  const [observations, setObservations] = useState("");
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const formatDate = (date) => {
-    if (!date) return '';
-    return date.toLocaleDateString('pt-BR', { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    if (!date) return "";
+    return date.toLocaleDateString("pt-BR", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
   const formatDateForStorage = (date) => {
-    if (!date) return '';
-    return date.toISOString().split('T')[0];
+    if (!date) return "";
+    return date.toISOString().split("T")[0];
   };
 
   const handleSubmit = (e) => {
@@ -44,39 +51,39 @@ const AppointmentSection = () => {
       time: selectedTime,
       clientName,
       clientPhone,
-      observations
+      observations,
     };
 
     // Add to mock data
     addAppointment(appointment);
 
     // Generate WhatsApp message
-    const message = `Olá! Gostaria de agendar um horário:
+    const message = `Olá! Acabei de agendar um horário:
 
-📅 Data: ${formatDate(selectedDate)}
-🕐 Horário: ${selectedTime}
-👤 Nome: ${clientName}
-📱 Telefone: ${clientPhone}
-${observations ? `📝 Observações: ${observations}` : ''}
+Data: ${formatDate(selectedDate)}
+Horário: ${selectedTime}
+Nome: ${clientName}
+Telefone: ${clientPhone}
+${observations ? `Observações: ${observations}` : ""}`;
 
-Aguardo confirmação!`;
-
-    const whatsappUrl = `https://wa.me/5511963065438?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://wa.me/5511963065438?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
 
     // Reset form
     setSelectedDate(null);
-    setSelectedTime('');
-    setClientName('');
-    setClientPhone('');
-    setObservations('');
+    setSelectedTime("");
+    setClientName("");
+    setClientPhone("");
+    setObservations("");
     setShowConfirmModal(false);
   };
 
   const getAvailableSlots = () => {
     if (!selectedDate) return timeSlots;
     const dateStr = formatDateForStorage(selectedDate);
-    return timeSlots.filter(time => isSlotAvailable(dateStr, time));
+    return timeSlots.filter((time) => isSlotAvailable(dateStr, time));
   };
 
   const today = new Date();
@@ -84,23 +91,28 @@ Aguardo confirmação!`;
   maxDate.setDate(today.getDate() + 60); // Allow bookings up to 60 days ahead
 
   return (
-    <section id="agendamento" className="py-20 bg-gradient-to-br from-pink-50 via-white to-rose-50">
+    <section
+      id="agendamento"
+      className="py-20 bg-gradient-to-br from-pink-50 via-white to-rose-50"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-2 text-pink-500 mb-4">
             <CalendarIcon className="w-5 h-5 fill-current" />
-            <span className="text-sm font-medium uppercase tracking-wider">Agende seu Horário</span>
+            <span className="text-sm font-medium uppercase tracking-wider">
+              Agende seu Horário
+            </span>
           </div>
-          
+
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Transforme suas unhas
             <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent block">
               hoje mesmo
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Escolha a data e horário que melhor se adequa à sua agenda. 
+            Escolha a data e horário que melhor se adequa à sua agenda.
             Atendemos de segunda à sábado, das 8h às 18h.
           </p>
         </div>
@@ -142,8 +154,8 @@ Aguardo confirmação!`;
                             onClick={() => setSelectedTime(time)}
                             className={`p-3 rounded-xl border-2 font-semibold transition-all duration-200 ${
                               selectedTime === time
-                                ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-lg transform scale-105'
-                                : 'bg-white border-pink-200 text-gray-700 hover:border-pink-400 hover:bg-pink-50'
+                                ? "bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-lg transform scale-105"
+                                : "bg-white border-pink-200 text-gray-700 hover:border-pink-400 hover:bg-pink-50"
                             }`}
                           >
                             {time}
@@ -152,7 +164,8 @@ Aguardo confirmação!`;
                       </div>
                       {getAvailableSlots().length === 0 && (
                         <p className="text-gray-500 text-center py-8">
-                          Nenhum horário disponível para esta data. Tente outra data.
+                          Nenhum horário disponível para esta data. Tente outra
+                          data.
                         </p>
                       )}
                     </div>
@@ -166,10 +179,13 @@ Aguardo confirmação!`;
                       <User className="w-5 h-5 text-pink-500" />
                       <span>Seus Dados</span>
                     </Label>
-                    
+
                     <div className="space-y-4">
                       <div>
-                        <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-2 block">
+                        <Label
+                          htmlFor="name"
+                          className="text-sm font-medium text-gray-700 mb-2 block"
+                        >
                           Nome Completo *
                         </Label>
                         <Input
@@ -184,7 +200,10 @@ Aguardo confirmação!`;
                       </div>
 
                       <div>
-                        <Label htmlFor="phone" className="text-sm font-medium text-gray-700 mb-2 block">
+                        <Label
+                          htmlFor="phone"
+                          className="text-sm font-medium text-gray-700 mb-2 block"
+                        >
                           Telefone/WhatsApp *
                         </Label>
                         <Input
@@ -199,7 +218,10 @@ Aguardo confirmação!`;
                       </div>
 
                       <div>
-                        <Label htmlFor="observations" className="text-sm font-medium text-gray-700 mb-2 block flex items-center space-x-2">
+                        <Label
+                          htmlFor="observations"
+                          className="text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2"
+                        >
                           <MessageSquare className="w-4 h-4 text-pink-500" />
                           <span>Observações (Opcional)</span>
                         </Label>
@@ -218,7 +240,12 @@ Aguardo confirmação!`;
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    disabled={!selectedDate || !selectedTime || !clientName || !clientPhone}
+                    disabled={
+                      !selectedDate ||
+                      !selectedTime ||
+                      !clientName ||
+                      !clientPhone
+                    }
                     className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     <CalendarIcon className="w-5 h-5 mr-2" />
@@ -238,18 +265,20 @@ Aguardo confirmação!`;
                 Confirmar Agendamento
               </DialogTitle>
             </DialogHeader>
-            
+
             <div className="space-y-4">
               <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-6 border border-pink-200">
-                <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
+                <p className="font-semibold text-gray-900 mb-4 flex items-center">
                   <Check className="w-5 h-5 text-green-500 mr-2" />
                   Detalhes do Agendamento
-                </h3>
-                
+                </p>
+
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Data:</span>
-                    <span className="font-medium">{formatDate(selectedDate)}</span>
+                    <span className="font-medium">
+                      {formatDate(selectedDate)}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Horário:</span>
@@ -265,7 +294,9 @@ Aguardo confirmação!`;
                   </div>
                   {observations && (
                     <div className="pt-2 border-t border-pink-200">
-                      <span className="text-gray-600 text-xs">Observações:</span>
+                      <span className="text-gray-600 text-xs">
+                        Observações:
+                      </span>
                       <p className="text-sm mt-1">{observations}</p>
                     </div>
                   )}
@@ -274,8 +305,9 @@ Aguardo confirmação!`;
 
               <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
                 <p className="text-sm text-blue-800 text-center">
-                  <strong>Atenção:</strong> Ao confirmar, você será redirecionada para o WhatsApp 
-                  para finalizar o agendamento com a Kamile.
+                  <strong>Atenção:</strong> Ao confirmar, você será
+                  redirecionada para o WhatsApp para finalizar o agendamento com
+                  a Kamile.
                 </p>
               </div>
 

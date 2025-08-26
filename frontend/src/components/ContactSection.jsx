@@ -48,7 +48,7 @@ const ContactSection = () => {
               <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8 border border-pink-100">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Informações de Contato</h3>
                 
-                <div className="space-y-6">
+                <div className="space-y-6 flex flex-col justify-between">
                   {/* WhatsApp */}
                   <div className="flex items-start space-x-4">
                     <div className="bg-green-500 p-3 rounded-xl">
@@ -119,33 +119,6 @@ const ContactSection = () => {
                       <p className="text-gray-600">{contactInfo.hours}</p>
                       <p className="text-sm text-gray-500 mt-1">Domingo: Fechado</p>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Reviews Section */}
-              <div className="bg-gradient-to-r from-pink-500 to-rose-500 rounded-3xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">O que minhas clientes dizem</h3>
-                
-                <div className="space-y-6">
-                  <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                    <div className="flex items-center space-x-1 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-300 fill-current" />
-                      ))}
-                    </div>
-                    <p className="mb-3">"Kamile é incrível! Sempre saio de lá com as unhas perfeitas. O atendimento é excelente e o ambiente muito aconchegante."</p>
-                    <p className="text-sm opacity-90">- Maria Silva</p>
-                  </div>
-
-                  <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                    <div className="flex items-center space-x-1 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-300 fill-current" />
-                      ))}
-                    </div>
-                    <p className="mb-3">"Profissional super dedicada e criativa. Suas nail arts são verdadeiras obras de arte!"</p>
-                    <p className="text-sm opacity-90">- Ana Costa</p>
                   </div>
                 </div>
               </div>
