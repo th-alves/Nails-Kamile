@@ -113,7 +113,7 @@ ${observations ? `Observações: ${observations}` : ""}`;
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Escolha a data e horário que melhor se adequa à sua agenda.
-            Atendemos de segunda à sábado, das 8h às 18h.
+            Atendemos de segunda à sexta, das 8h às 18h.
           </p>
         </div>
 
