@@ -70,7 +70,7 @@ export const aboutInfo = {
 export const contactInfo = {
   phone: "11963065438",
   instagram: "@kamilesilvanails",
-  address: "Rua das Flores, 123 - Vila Madalena, Rio Grande do Sul - RS",
+  address: "Cachoeirinha - Rio Grande do Sul - RS",
   cep: "05432-000",
   hours: "Segunda à Sábado: 8h às 18h"
 };
