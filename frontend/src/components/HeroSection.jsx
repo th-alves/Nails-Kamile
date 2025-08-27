@@ -25,7 +25,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-8">
-            <div className="space-y-4">
+            <div className="space-y-4 py-6">
               <div className="flex items-center space-x-2 text-pink-500">
                 <Star className="w-5 h-5 fill-current" />
                 <span className="text-sm font-medium uppercase tracking-wider">
